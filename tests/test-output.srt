@@ -1,0 +1,676 @@
+1
+0:0:0,259 --> 0:0:22,275
+Welcome back to Let's go On Chris Ba guard and today, we going to be talking about vertex shade in the Betty game engine. Now the scene you before you is just two objects. There is a cube on top. There's a three d cube, not just a two d even though it looks like that because of the way placed on the camera. And then there's also the plane underneath it, which you can tell from the wire
+
+2
+0:0:22,814 --> 0:0:33,227
+is actually just a flat plane that we've applied a vertex shade or two that moves the ver based on some simple noise in this case to make these
+
+3
+0:0:33,645 --> 0:0:56,159
+mountains and valleys, which are really interesting to look at and yeah, I just wanna to talk a little bit about how to create this effect, and I'm going to take this effect further in future videos. So let's get it. So first off, we've only got two files. We've got main dot, which includes our bev code and we've got land vertex cheater dot w g l. Now land vertex shade dot w gs s l is our
+
+4
+0:0:56,656 --> 0:0:58,272
+vertex shade, which is mostly
+
+5
+0:0:58,768 --> 0:1:6,354
+the same as the default vertex for everybody. So a lot of these functions like mesh position local to world are just coming from the
+
+6
+0:1:7,494 --> 0:1:8,555
+default vertex
+
+7
+0:1:9,215 --> 0:1:17,720
+that betty uses for everything. And then this additional code here is what we've added to change the color and the position
+
+8
+0:1:18,34 --> 0:1:31,454
+of the Ver c's on this plane. Now before we dive into that code, let's talk through the bev code. So aside from all of the items we bring in scope at the top, We've got a source ambient white light. I've got a pink color on the background.
+
+9
+0:1:31,853 --> 0:1:33,472
+I've set some W
+
+10
+0:1:33,890 --> 0:1:57,788
+settings. So I enabled the Poly mode line feature, which is required for that wire frame effect on the plane that we saw earlier, the default bev plug, the wireframe plugin, which we also need for the wire stuff. The shade plug in is the library of shade scripts that provide the noise that we've been using in every video up until this point. And then this land material is the plane that we see
+
+11
+0:1:58,126 --> 0:2:8,245
+on the bottom of the... I don't I'm calling it a landscape. And then we set up we animate a light around the cube. That's why you see it kind of blinking in the beginning of the video. This movement
+
+12
+0:2:8,622 --> 0:2:9,122
+controls
+
+13
+0:2:9,554 --> 0:2:15,401
+the camera and the cube. So we move both of them forward through space to get that nice animated
+
+14
+0:2:15,979 --> 0:2:19,287
+kind of like moving through the landscape effect. And change position
+
+15
+0:2:19,625 --> 0:2:20,125
+is
+
+16
+0:2:20,542 --> 0:2:25,205
+passing the position of where we are, specifically, I believe cube
+
+17
+0:2:26,263 --> 0:2:36,88
+into the vertex shade so that we can do an offset and things like that. I've got the ship component just to label the cube as, you know, the ship quote unquote. There is no
+
+18
+0:2:36,465 --> 0:2:40,475
+ship at the moment. I need to figure out how to import a G f file
+
+19
+0:2:40,892 --> 0:2:52,155
+to use that. But it seems to be broken on the main branch right now. So I'm just not doing it correctly. Our setup function sets up all of our objects in the scene. First, we've got a three d bundle that is set
+
+20
+0:2:52,535 --> 0:2:56,125
+right behind the cube. And we've put on it. Movable
+
+21
+0:2:56,822 --> 0:2:57,322
+is
+
+22
+0:2:57,700 --> 0:3:2,565
+a component that our leader system will query to so that we can use the arrow keys to
+
+23
+0:3:3,23 --> 0:3:8,233
+move our cube through space and as well as our camera. We have a directional light
+
+24
+0:3:8,651 --> 0:3:20,720
+that kind of circles the cube. So we have a system that animate the light around the queue. And then this is our interesting part. So in our previous videos, we've got taken a mesh from something like Cube from plain.
+
+25
+0:3:21,535 --> 0:3:27,395
+Or something that is built into bev. In this case, I have defined my own structure here to make a one thousand
+
+26
+0:3:27,975 --> 0:3:28,475
+unit
+
+27
+0:3:28,975 --> 0:3:35,154
+piece of land in this case, it's just kind of like a really big plane. And then num ver is the number of subdivision
+
+28
+0:3:35,811 --> 0:3:39,355
+between the edges that I want. So a higher number here will get us
+
+29
+0:3:39,974 --> 0:3:48,985
+smoother curves and a lower number here will get us more jagged edges. Now because we're using a vertex shade, one of the things that I wanna do is input a bunch of basically
+
+30
+0:3:49,540 --> 0:3:51,560
+taking the positions for each
+
+31
+0:3:52,700 --> 0:4:9,634
+vertex and inputting them as a color so that each of these ver has a color corresponding to the position that it existed. I find that this creates a nice effect when I'm just getting started with a project and sometimes when I'm debugging I'll go back and forth between this kind of like rainbow e
+
+32
+0:4:10,650 --> 0:4:16,453
+and the actual effect, which in this case is like a pink world. And this having this rainbow
+
+33
+0:4:17,484 --> 0:4:18,742
+spread across all of the ver
+
+34
+0:4:19,160 --> 0:4:28,973
+is one way for me to know for sure that when I change the colors, it's changing to either the shade that I wrote or the defaults. So all was is doing is getting the
+
+35
+0:4:29,787 --> 0:4:30,526
+position attributes
+
+36
+0:4:30,863 --> 0:4:35,681
+for all the ver. We get them as a v three So it's a
+
+37
+0:4:36,257 --> 0:4:49,262
+three item back of float thirty fuse or f thirty two's, and that comes back to us as positions as a v we map over those, we use each of these values as a color value, and then we collect it back into back and set it as the color.
+
+38
+0:4:49,761 --> 0:4:52,675
+Instead of the position attribute. And when I disable the
+
+39
+0:4:53,295 --> 0:5:4,100
+vertex shade later, you'll see these colors come through. So this is where we're defining them. We also have to spawn the land in as the mesh. So we add the mesh. We give it a position in this case, it's like slightly below cube,
+
+40
+0:5:4,738 --> 0:5:8,191
+and then we instant our land material, which is the
+
+41
+0:5:8,784 --> 0:5:33,425
+struck that will control which shade are used to apply to this mesh. In this case I passed in time because I always like to use time, but in this case, we're not using it yet. And we are also passing in the ship position. So that's the x y the coordinate of the transform for the cube in world space. Then, of course, we've got our cube. It's a standard material, so we could, you know, text it if we wanted to or whatnot. This is gonna get replaced with a G f.
+
+42
+0:5:33,880 --> 0:5:39,140
+In the future. So... Yeah. Now much just say is a cube. It's kinda small. It's less spending unit
+
+43
+0:5:39,520 --> 0:5:43,231
+at its place in front of the camera. We also have movable on
+
+44
+0:5:44,128 --> 0:5:53,659
+ship is what I'm calling it. As well as the camera. So if we move forward, we move forward and tandem, the enemy like the direction we've gone over in the past, basically
+
+45
+0:5:54,36 --> 0:6:4,55
+moving the light the directional light around the cube. That's what causes it to look like it's flashing a little bit. Or slowly as the light rotates around. Like you change position is the
+
+46
+0:6:4,395 --> 0:6:7,315
+land material. So we get a land material assets. We hit iterate over them.
+
+47
+0:6:8,90 --> 0:6:11,830
+For all the land material assets, we pass in the current position
+
+48
+0:6:12,170 --> 0:6:23,685
+of the ship. We get the transform for any entity that has the ship component in this case that's the cube. So wherever that ship is in World space, we take that x y z equal coordinate and we pass it into the ship position.
+
+49
+0:6:24,139 --> 0:6:36,705
+On our material as a v. This is the really interesting part We've got the material implementation for land material. This just points to the vertex shade. You can see that I have some scaffolding code in here for the alpha value or the fragment,
+
+50
+0:6:37,5 --> 0:6:55,466
+whatever in case I wanna do that future. And then we've got the lan material here. The land material has an arbitrary Eu id just needs to be unique basically, we derived as buying group and the other things we need, and we define time and ship position as uniforms. So time is an f thirty two and ship position is a x three,
+
+51
+0:6:56,226 --> 0:7:3,319
+uniforms again, are read only data that are sent to all of the sort of processing units. Right? So
+
+52
+0:7:3,696 --> 0:7:5,152
+when we're programming for the Gpu,
+
+53
+0:7:5,585 --> 0:7:10,405
+any pixel can be processed anywhere on the Gpu basically because they all get processed
+
+54
+0:7:10,945 --> 0:7:12,145
+extremely in parallel.
+
+55
+0:7:12,960 --> 0:7:16,700
+And uniforms are basically the data that gets copied to send to
+
+56
+0:7:17,80 --> 0:7:21,180
+wherever the processing is happening. So in this case, we get a read only
+
+57
+0:7:21,973 --> 0:7:37,610
+timestamp stamp in a read only position for each of the shade or for each of the shade that is being processed. So in contrast to the land material, we do have this lens truck. The lan struck defines the size and a number of ver that we went over before, and then we implement from land for mesh.
+
+58
+0:7:38,585 --> 0:8:2,165
+From and into our really interesting traits and rest. But, basically, if we have a land, we can turn it into a mesh by using this from function on the land. In this case, all I'm doing is taking the plain size and dividing it by two and treating that as either the positive or negative maximum for the plane. So if you in a plane as like a square on a x y, like or,
+
+59
+0:8:2,625 --> 0:8:3,125
+the
+
+60
+0:8:3,505 --> 0:8:8,167
+negative most x value and the negative most y value are gonna be in
+
+61
+0:8:8,544 --> 0:8:11,992
+the bottom left square of that x y coordinate.
+
+62
+0:8:12,384 --> 0:8:15,16
+Whereas the positives are gonna be in the top right,
+
+63
+0:8:15,853 --> 0:8:45,893
+if x is positive and y is negative is gonna be the bottom right and so on. So if say you've got a one unit plane, bottom left coordinate is gonna be negative one negative one for x and y. It'll be one one in the top right, for x and for y, and then some combination of the two, four the other two x and y position. So it is in the top left, it's negative x and positive y, if in the bottom right, it's a positive x and a negative way. So that's what is here. Because we're trying to place this plane and basically in the middle of
+
+64
+0:8:46,711 --> 0:8:52,185
+that x y grid. Jump takes the number of ver that we've defined. So if we have say
+
+65
+0:8:53,165 --> 0:9:6,210
+a plane of size ten, and we want ten boxes to be sub divided out of that, so basically five on each side of the middle line, this is the increment to go from zero to one from one to two, two to three,
+
+66
+0:9:6,903 --> 0:9:15,346
+across the accent across the y at the same time. Now to create a mesh, we actually have to create all of the triangles ourselves. So for the ver,
+
+67
+0:9:15,899 --> 0:9:17,238
+we get to just do
+
+68
+0:9:17,657 --> 0:9:18,836
+zero to
+
+69
+0:9:19,535 --> 0:9:24,450
+numb ver. So whatever number we passed in. And then we teaching product that was zero to number ver.
+
+70
+0:9:24,864 --> 0:9:29,591
+So if this is like, zero to ten and zero to ten, then what we get back is
+
+71
+0:9:29,968 --> 0:9:30,468
+a
+
+72
+0:9:30,885 --> 0:9:31,624
+Y x
+
+73
+0:9:32,320 --> 0:9:34,176
+combination of the
+
+74
+0:9:34,489 --> 0:9:43,851
+all of the points on grid, basically. So we'll get zero one zero two zero three zero four etcetera. We map over all of those points. And we we create two triangles
+
+75
+0:9:44,364 --> 0:9:49,314
+out of each of them, basically. We map over all of those points and we say, okay,
+
+76
+0:9:50,112 --> 0:9:54,819
+Each of the increments that we need we need one of them. We do need to move the
+
+77
+0:9:55,675 --> 0:10:8,912
+increment to the left by half of the width of the plane that we're working with. So when we're thinking about x times the increment number. We're using that as it's kind of an absolute number from zero to ten, but we needed it to be from negative five to five
+
+78
+0:10:9,289 --> 0:10:16,680
+to fit in the middle of the x y who or nick. So we do x times the increment and then we subtract half of
+
+79
+0:10:17,380 --> 0:10:21,734
+the width of the plane. This second array value or the second value is
+
+80
+0:10:22,114 --> 0:10:40,415
+the normal. So in this case, all of our triangles are pointing up So we've got the x value the y value in the z value. So this is basically the vector if we drew vector straight out of the plane itself. Which direction would it be facing? It would be facing straight up in the y
+
+81
+0:10:41,74 --> 0:10:46,625
+coordinate space. And then we set our points is basically x and y, out of the number of ver. So
+
+82
+0:10:47,441 --> 0:10:54,858
+instead of making the plain bigger, if we have more ver, we're sub dividing the plane, So we need to be at... Let's say, if we are
+
+83
+0:10:55,635 --> 0:11:5,881
+a plane of size ten, we need to have zero one two three four five six seven eight nine. And we collect that into back and use it for any of the rest of the calculations that we need. Now the other
+
+84
+0:11:6,297 --> 0:11:16,155
+complicated piece of this is that now that we have all of of ver for our planes. So if we've got, like, a ten by ten plane, we've got a hundred ver. Right? We need to create the
+
+85
+0:11:16,669 --> 0:11:17,169
+indexes
+
+86
+0:11:17,589 --> 0:11:19,169
+for all of the triangles
+
+87
+0:11:19,629 --> 0:11:22,649
+that make up that plane. So if we have
+
+88
+0:11:23,429 --> 0:11:24,169
+a hundred
+
+89
+0:11:24,725 --> 0:11:36,988
+squares or ten squares or something like that. Then we are going to need to split up all of those squares into triangles. So every square can be made of two triangles, and that's what we're doing here. We're basically
+
+90
+0:11:37,325 --> 0:11:40,298
+if we have one square and say we've got
+
+91
+0:11:40,994 --> 0:11:48,88
+points zero one two and three. We can draw triangle by going zero one two and then a triangle
+
+92
+0:11:48,545 --> 0:11:49,45
+from
+
+93
+0:11:49,462 --> 0:12:8,850
+zero two three. For example, that's what this is doing. We're getting all of the points again using carte product. We en over them to get which index they are at. In the list because we do need one single list here. And then we do a filter map if we are at sort of the edges. So the very right most edge or the very top most edge
+
+94
+0:12:9,786 --> 0:12:23,307
+then we can't draw a triangle from there to anywhere. Because we're going kind of from the bottom left to the top right. So if we are, for example, all the way on the right side of x, there is no, like, x plus one
+
+95
+0:12:23,686 --> 0:12:35,664
+for us to be at So these are basically taking the index and pointing to each of these points. So if we have a row of ten ver, for example, and then we have...
+
+96
+0:12:36,522 --> 0:12:42,455
+And we're at a, like, point zero. We can draw two triangles in this case we would draw zero
+
+97
+0:12:42,769 --> 0:13:7,644
+So if we look at these more of a visual representation, we can see that if we say start at this point, we can draw a triangle by going across and back and that gives us this point that point that point, which defines this triangle and then we can also go from say this point that point and that point and which defines the other triangle, and then we get two triangles for this all square here. The math is a little f. It depends on
+
+98
+0:13:8,342 --> 0:13:12,31
+kind of what order you have your ver in and it also...
+
+99
+0:13:13,246 --> 0:13:16,355
+If we scroll down a little bit, we use flatten twice by the way.
+
+100
+0:13:17,569 --> 0:13:28,153
+Because we return some and then an array of two points or two triangles. We wanna flatten all of that into a single list because we're using triangle list here, which is a single list of
+
+101
+0:13:28,690 --> 0:13:48,15
+three points next to each other. So we would have one v of zero one two zero two three, and that would be two triangles, but it would be one v, which is a little bit confusing, but that's just the way we have to pack the data. So we get all the positions for all the ver. We get all the normal for all of the ver and we get all of the Uv
+
+102
+0:13:48,392 --> 0:13:54,674
+for all of the ver, which is what we've defined above. Actually, do we get to Uv? Oh, I I don't think I explained you these correctly.
+
+103
+0:13:55,513 --> 0:13:57,790
+Uv are say we have a plane.
+
+104
+0:13:58,764 --> 0:14:8,783
+Zero zeros in the bottom left, one one is in the top right, and then that's our Uv coordinate space. So that's what this x and y r it's Uv coordinates. It's not necessarily
+
+105
+0:14:9,958 --> 0:14:13,967
+point coordinates on the x y plane that we are thinking of. It is
+
+106
+0:14:14,344 --> 0:14:25,205
+its own space. Right? When I say world space or Uv space, this is defining a space that starts at zero zero ends at one one and represents the entire
+
+107
+0:14:25,860 --> 0:14:33,394
+plane that we are working with. So for all x, we have to be, like, if x is zero, then we're at zero over number ver.
+
+108
+0:14:33,854 --> 0:14:43,584
+Hit x five, then we are at five over the number of ver. So if we have ten ver, we're halfway through. That kind of thing. And then we set the indexes on the mesh. We set the attribute...
+
+109
+0:14:44,23 --> 0:14:49,351
+We set the position of the ver on the mesh. And we set the normal for all of the ver disease.
+
+110
+0:14:50,230 --> 0:14:50,730
+It's
+
+111
+0:14:51,149 --> 0:14:57,419
+confusing here because everything is kind of set in a different place and the ordering matters and all of that kind of stuff, but
+
+112
+0:14:58,199 --> 0:15:7,234
+maybe i'll do another video on a more produced video of what it takes to actually create this mesh because it is a little confusing. And
+
+113
+0:15:8,454 --> 0:15:18,770
+it took me a few tries to create the triangles correctly. So that seems like something worth doing. And then we've got movable and anything with the movable component on it gets picked up by this movement system.
+
+114
+0:15:19,423 --> 0:15:21,41
+And we move either plus
+
+115
+0:15:21,778 --> 0:15:25,710
+and we move either plus or minus in the z direction or plus or minus in the x direction
+
+116
+0:15:26,48 --> 0:15:39,954
+using the arrow keys. As we've done before. So if we go back and, we look at our demo here, we can go left and right and forward and back, and all of that still work. Now as I move forward here, you can see a little bit of a up and down bump
+
+117
+0:15:40,571 --> 0:15:43,26
+that's attributable to the sign
+
+118
+0:15:44,18 --> 0:15:47,235
+calculation that we're about to see in the f jet. So to start with
+
+119
+0:15:47,654 --> 0:15:54,365
+we're gonna take the vertex position and we're gonna create a noise value out of it. This is the value that is going to give us either the
+
+120
+0:15:55,24 --> 0:16:5,165
+high mountain or the low valley for our y coordinate. Remember this noise value is going to be from negative one to one. And then we set the color of the vertex
+
+121
+0:16:5,502 --> 0:16:16,380
+to rg b alpha using a v four. Again, we don't have, like, complicated types here. We just have a v four and we can pass kind of any information that we want to out of this
+
+122
+0:16:17,78 --> 0:16:21,568
+in the past, we've actually passed the position here to access that in the fragment.
+
+123
+0:16:21,906 --> 0:16:23,243
+But in this case, it's
+
+124
+0:16:23,581 --> 0:16:26,695
+half red whatever noise value we have and then half
+
+125
+0:16:27,154 --> 0:16:28,334
+blue. And this
+
+126
+0:16:28,875 --> 0:16:32,495
+this is from negative one to one. Right? So if you look at the
+
+127
+0:16:32,809 --> 0:16:44,835
+color values that are below one. They're kind of all, like very saturated out and washed out and, like, they all look kind of the same. That's what gives us this little bit of, like, fog ish effect down there.
+
+128
+0:16:45,795 --> 0:16:56,167
+I can take the the mesh off later too and show that a little bit more So then the world position of the vertex. So the position of the vertex as it stands in the actual
+
+129
+0:16:56,503 --> 0:16:57,420
+entire game scene.
+
+130
+0:16:58,33 --> 0:17:12,873
+Is created by passing in the model which has our mesh information on it. And then the vertex position for x, the vertex position for z, and the noise value for why? And this noise value for why is how we get the peaks in the values
+
+131
+0:17:13,531 --> 0:17:14,810
+in our vertex position.
+
+132
+0:17:15,344 --> 0:17:18,438
+I've done some additional stuff here. So to get the
+
+133
+0:17:19,974 --> 0:17:23,925
+noise to behave a little bit differently as the ship moves through. I've taken the ship position.
+
+134
+0:17:24,499 --> 0:17:26,236
+And you can see that I've
+
+135
+0:17:26,773 --> 0:17:32,955
+calculated the offset from where the ship is to where in the world we are. And I've applied
+
+136
+0:17:33,454 --> 0:17:50,660
+assign wave to that with an amplitude of four. So if you multiply for by sin wave, you get a bigger amplitude, right? Because sign goes from negative one to one. So in this case, we'll go from negative four to four. We divide that by a hundred. Seems like a good number. It's arbitrary. This is a magic number here.
+
+137
+0:17:51,794 --> 0:17:53,934
+And then we set the
+
+138
+0:17:54,315 --> 0:17:56,815
+new world position to the old world position
+
+139
+0:17:57,155 --> 0:18:0,255
+minus that value. So I'm trying to get this
+
+140
+0:18:1,330 --> 0:18:5,910
+kind of up and down effect. And I might switch to this to be something a little bit more
+
+141
+0:18:6,250 --> 0:18:13,605
+like world c So instead of seeing the vertex go up and down here as they're traveling past our cube,
+
+142
+0:18:14,65 --> 0:18:25,280
+we could have this signed be the total representation out to the end and be kind of like a world horizon instead of this flat horizon that we have sticking out from our plane. And then we do the same for clip position.
+
+143
+0:18:25,934 --> 0:18:32,800
+I'm gonna be honest. I don't quite understand the difference between clip position and world position. I think clip position has something to do with
+
+144
+0:18:33,298 --> 0:18:37,466
+when the stuff on the screen stops rendering, but that is something that I
+
+145
+0:18:38,162 --> 0:18:41,892
+left in from the default vertex and
+
+146
+0:18:42,405 --> 0:18:51,360
+Actually, we can do this. If we don't include the clip position, we actually don't get any output. So critically important to have the clip position as well as the world position
+
+147
+0:18:52,18 --> 0:19:3,755
+But I'm gonna be honest. I don't understand clip position yet. There will be a future video on what clip position is because I need to go look it up. And that's it. I mean, we've got a cube we've got a plane. We've got the planes sub divided into triangles.
+
+148
+0:19:4,255 --> 0:19:18,679
+We've got the ability to move on third plane. So we can go forward and back or left to right we're both are a bunch of them. And this is a one thousand by one thousand planes, so we're kind of in the middle of it right now. And there are a thousand ver.
+
+149
+0:19:19,96 --> 0:19:21,549
+So it's kind of jagged. We can
+
+150
+0:19:21,886 --> 0:19:31,634
+cancel that. And I wanna show two things here before we leave. Let's take a look at... I don't know if this will work if I'm being honest. Okay. My entire computer is slowing down.
+
+151
+0:19:32,152 --> 0:19:39,288
+Okay. Well, that was a fun experiment. My entire computer is slowing down. Instead of making it ten thousand. Let's make the
+
+152
+0:19:39,625 --> 0:19:41,800
+size of the land mass
+
+153
+0:19:42,297 --> 0:19:48,11
+down to a hundred and we can see how a thousand ver creates this nice, like,
+
+154
+0:19:48,928 --> 0:19:49,428
+very
+
+155
+0:19:50,4 --> 0:19:52,431
+smooth result. Compared to
+
+156
+0:19:53,206 --> 0:20:5,451
+what we had before. And you can see the ver on the ground here, that they are much smaller than before So if you're looking for something a little bit more blob, this is a better approach you're looking for something that's a little bit more
+
+157
+0:20:6,365 --> 0:20:6,865
+fragment,
+
+158
+0:20:7,365 --> 0:20:11,705
+I think that fewer ver works better. Let's do one more thing. Let's
+
+159
+0:20:12,445 --> 0:20:16,833
+move this back to being a thousand build the server, and then
+
+160
+0:20:17,211 --> 0:20:19,508
+let's remove the wire. So here we've got a wireframe.
+
+161
+0:20:19,886 --> 0:20:20,546
+The wireframe
+
+162
+0:20:20,884 --> 0:20:21,783
+is on
+
+163
+0:20:22,122 --> 0:20:29,575
+the land mass. If we remove the wireframe from betty, we won't see the outline of the plane as it exists in the system anymore.
+
+164
+0:20:30,655 --> 0:20:40,290
+Then we will just get to see kind of our our land masses going by. So you can see that the color below zero kind of clips out and creates this fog effect,
+
+165
+0:20:41,383 --> 0:20:49,906
+We don't see the wire anymore. We could put the wireframe on the cube as well. But but, yeah, I'm hoping to put a spaceship inside of this and
+
+166
+0:20:50,339 --> 0:20:55,805
+Yeah. We'll see. I don't know. I don't know where I'm gonna go with this one. But I hope that you learned a little bit about vertex shade.
+
+167
+0:20:56,603 --> 0:21:6,132
+They're really cool. It's it's really fun to kind of mess with the position in the rendering that the vertex are supposed to be. You could easily see this used for
+
+168
+0:21:6,669 --> 0:21:7,905
+water or something like that.
+
+169
+0:21:8,678 --> 0:21:30,530
+And hopefully, you can see how, like we can get a flat plane to look kind of mountainous and completely different without actually changing anything in the mesh. So I will catch you next time, and I hope you enjoyed this episode of Let's cook. As always, the code will be linked in the description. And if you have any questions, leave a comment Have you liked the video. Triple a like. It helps out. I'll catch you next time.
+
