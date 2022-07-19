@@ -1,12 +1,12 @@
-use camino::Utf8PathBuf;
-use clap::Args;
-use deepgram::{
+use crate::deepgram::{
     transcription::prerecorded::{
         audio_source::{BufferSource, UrlSource},
         options::{Language, Options},
     },
     Deepgram, DeepgramError,
 };
+use camino::Utf8PathBuf;
+use clap::Args;
 use indicatif::{ProgressBar, ProgressStyle};
 use miette::Diagnostic;
 use thiserror::Error;
@@ -228,7 +228,6 @@ pub async fn generate_captions(
         output.set_extension("srt");
 
         let srt = Srt::try_from(response).unwrap();
-        println!("{:?}", srt);
 
         let mut srt_file = File::create(output).await?;
         srt_file.write_all(srt.value.as_bytes()).await?;

@@ -212,27 +212,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "deepgram"
-version = "0.2.0-alpha.3"
-source = "git+https://www.github.com/deepgram-devs/deepgram-rust-sdk?branch=all-mods#b25cbce36e100e9a524a9afac26347a9560e99e8"
-dependencies = [
- "bytes",
- "futures",
- "http",
- "pin-project",
- "reqwest",
- "serde",
- "serde_json",
- "thiserror",
- "tokio",
- "tokio-tungstenite",
- "tokio-util",
- "tungstenite",
- "url",
- "uuid",
-]
-
-[[package]]
 name = "digest"
 version = "0.10.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -597,21 +576,28 @@ dependencies = [
 name = "lamarck"
 version = "0.1.0"
 dependencies = [
+ "bytes",
  "camino",
  "clap",
- "deepgram",
+ "futures",
+ "http",
  "indicatif",
  "miette",
  "mime_guess",
+ "pin-project",
  "reqwest",
  "serde",
  "serde_json",
  "thiserror",
  "time",
  "tokio",
+ "tokio-tungstenite",
+ "tokio-util",
  "tracing",
  "tracing-subscriber",
+ "tungstenite",
  "url",
+ "uuid",
 ]
 
 [[package]]

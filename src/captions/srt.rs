@@ -1,4 +1,4 @@
-use deepgram::transcription::prerecorded::response::Response;
+use crate::deepgram::transcription::prerecorded::response::Response;
 use time::Duration;
 
 #[derive(Debug)]
