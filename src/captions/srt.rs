@@ -9,9 +9,7 @@ pub struct Srt {
 impl TryFrom<Response> for Srt {
     type Error = String;
 
-    fn try_from(
-        response: Response,
-    ) -> Result<Self, Self::Error> {
+    fn try_from(response: Response) -> Result<Self, Self::Error> {
         let srt = response
             .results
             .utterances
@@ -41,10 +39,10 @@ fn seconds_to_timestamp(milliseconds: i64) -> String {
     let d = Duration::milliseconds(milliseconds);
     format!(
         "{}:{}:{},{}",
-        d.whole_hours(),
-        d.whole_minutes() % 60,
-        d.whole_seconds() % 60,
-        d.whole_milliseconds() % 1000
+        format!("{:02}", d.whole_hours()),
+        format!("{:02}", d.whole_minutes() % 60),
+        format!("{:02}", d.whole_seconds() % 60),
+        format!("{:03}", d.whole_milliseconds() % 1000)
     )
 }
 
@@ -84,8 +82,8 @@ fn to_srt_test() {
               "id": "e88264de-a8cf-44e9-a7db-848ad5bab7a5"
             },
             {
-              "start": 10.648263,
-              "end": 333317.190998,
+              "start": 10.048263,
+              "end": 433317.190998,
               "confidence": 0.9015952,
               "channel": 0,
               "transcript": "now we are engaged in a great civil war testing whether that nation or any nations open conceived and so dedicated can long endure",
@@ -97,10 +95,8 @@ fn to_srt_test() {
       }
     "#;
 
-    let resp: Response =
-        serde_json::from_str(data).unwrap();
+    let resp: Response = serde_json::from_str(data).unwrap();
 
-    let srt =
-        Srt::try_from(resp).expect("subtitle srt failed");
-    assert_eq!(srt.value, "1\n0:0:0,419 --> 0:0:5,430\nfour score and seven years ago our fathers brought forth on this continent a new nation\n\n2\n0:0:5,888 --> 0:0:9,880\nconceived liberty and dedicated to the proposition that all men are created equal\n\n3\n0:0:10,648 --> 92:35:17,190\nnow we are engaged in a great civil war testing whether that nation or any nations open conceived and so dedicated can long endure\n\n");
+    let srt = Srt::try_from(resp).expect("subtitle srt failed");
+    assert_eq!(srt.value, "1\n00:00:00,419 --> 00:00:05,430\nfour score and seven years ago our fathers brought forth on this continent a new nation\n\n2\n00:00:05,888 --> 00:00:09,880\nconceived liberty and dedicated to the proposition that all men are created equal\n\n3\n00:00:10,048 --> 120:21:57,190\nnow we are engaged in a great civil war testing whether that nation or any nations open conceived and so dedicated can long endure\n\n");
 }
