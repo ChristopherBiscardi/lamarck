@@ -1183,7 +1183,7 @@ mod serialize_options_tests {
     use std::env;
 
     use super::{super::audio_source::UrlSource, *};
-    use crate::Deepgram;
+    use crate::deepgram::Deepgram;
 
     fn check_serialization(options: &Options, expected: &str) {
         let deepgram_api_key = env::var("DEEPGRAM_API_KEY").unwrap_or_default();
