@@ -38,11 +38,11 @@ impl TryFrom<Response> for Srt {
 fn seconds_to_timestamp(milliseconds: i64) -> String {
     let d = Duration::milliseconds(milliseconds);
     format!(
-        "{}:{}:{},{}",
-        format!("{:02}", d.whole_hours()),
-        format!("{:02}", d.whole_minutes() % 60),
-        format!("{:02}", d.whole_seconds() % 60),
-        format!("{:03}", d.whole_milliseconds() % 1000)
+        "{:02}:{:02}:{:02},{:03}",
+        d.whole_hours(),
+        d.whole_minutes() % 60,
+        d.whole_seconds() % 60,
+        d.whole_milliseconds() % 1000
     )
 }
 
