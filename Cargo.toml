@@ -1,6 +1,6 @@
 [package]
 name = "lamarck"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["Chris Biscardi", "Jacob Bolda"]
 description = "A toolkit CLI for audio/visual manipulation such as generating SRT captions using Deepgram."
