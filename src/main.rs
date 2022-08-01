@@ -12,11 +12,12 @@ async fn main() -> Result<()> {
 
     // You can check for the existence of subcommands, and if found use their
     // matches just as you would the top level cmd
-    match &cli.command {
+    let result = match &cli.command {
         Commands::Caption(options) => {
             generate_captions(options)
         }
     }
-    .await
-    .into_diagnostic()
+    .await;
+    dbg!(&result);
+    result.into_diagnostic()
 }
