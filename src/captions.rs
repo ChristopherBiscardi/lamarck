@@ -1,6 +1,6 @@
-use crate::deepgram::{
+use deepgram::{
     transcription::prerecorded::{
-        audio_source::{BufferSource, UrlSource},
+        audio_source::AudioSource,
         options::{Language, Options},
     },
     Deepgram, DeepgramError,
@@ -57,11 +57,6 @@ pub struct Caption {
         help_heading = "OUTPUT_TYPE"
     )]
     markdown: bool,
-}
-
-enum Input<'a> {
-    Url(UrlSource<'a>),
-    File(BufferSource<'a, File>),
 }
 
 #[derive(Error, Diagnostic, Debug)]
@@ -139,11 +134,8 @@ pub async fn generate_captions(
         });
     }
 
-    let mut g = "".to_string();
     let source = match Url::parse(&options.input) {
-        Ok(_) => Ok(Input::Url(UrlSource {
-            url: &options.input,
-        })),
+        Ok(_) => Ok(AudioSource::from_url(&options.input)),
         Err(url_error) => {
             debug!("url failed to parse {:?}", url_error);
             let filepath =
@@ -159,14 +151,10 @@ pub async fn generate_captions(
                             guess,
                         })
                     } else {
-                        g = guess.to_string();
-
-                        // BufferSource *requires* a &str but not a &buffer lmao
-                        let source = BufferSource {
-                            buffer: file,
-                            mimetype: Some(&g),
-                        };
-                        Ok(Input::File(source))
+                        Ok(AudioSource::from_buffer_with_mime_type(
+                            file,
+                            guess.to_string(),
+                        ))
                     }
                 }
                 None => Err(CaptionError::MimeGuessError {
@@ -186,26 +174,10 @@ pub async fn generate_captions(
         .build();
 
     bar.set_message("waiting for deepgram");
-    let response = match source {
-        Input::Url(inner_source) => {
-            dg_client
-                .transcription()
-                .prerecorded(
-                    &inner_source,
-                    &deepgram_options,
-                )
-                .await?
-        }
-        Input::File(inner_source) => {
-            dg_client
-                .transcription()
-                .prerecorded(
-                    inner_source,
-                    &deepgram_options,
-                )
-                .await?
-        }
-    };
+    let response = dg_client
+        .transcription()
+        .prerecorded(source, &deepgram_options)
+        .await?;
 
     bar.set_message("processing deepgram response");
 
