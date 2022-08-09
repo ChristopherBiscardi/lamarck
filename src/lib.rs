@@ -2,7 +2,6 @@ use clap::{Parser, Subcommand};
 
 mod captions;
 pub use captions::*;
-mod deepgram;
 
 #[derive(Parser)]
 #[clap(author, version, about, long_about = None)]
