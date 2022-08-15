@@ -9,7 +9,9 @@ pub struct Srt {
 impl TryFrom<Response> for Srt {
     type Error = String;
 
-    fn try_from(response: Response) -> Result<Self, Self::Error> {
+    fn try_from(
+        response: Response,
+    ) -> Result<Self, Self::Error> {
         let srt = response
             .results
             .utterances
@@ -48,8 +50,10 @@ fn seconds_to_timestamp(milliseconds: i64) -> String {
 
 #[test]
 fn to_srt_test() {
-    // note that this response has results.utterances[*].words as an empty array for brevity
-    // a true response would also have that filled in
+    // note that this response has
+    // results.utterances[*].words as an empty array
+    // for brevity a true response would also have
+    // that filled in
     let data = r#"
     {
         "metadata": {
@@ -95,8 +99,10 @@ fn to_srt_test() {
       }
     "#;
 
-    let resp: Response = serde_json::from_str(data).unwrap();
+    let resp: Response =
+        serde_json::from_str(data).unwrap();
 
-    let srt = Srt::try_from(resp).expect("subtitle srt failed");
+    let srt =
+        Srt::try_from(resp).expect("subtitle srt failed");
     assert_eq!(srt.value, "1\n00:00:00,419 --> 00:00:05,430\nfour score and seven years ago our fathers brought forth on this continent a new nation\n\n2\n00:00:05,888 --> 00:00:09,880\nconceived liberty and dedicated to the proposition that all men are created equal\n\n3\n00:00:10,048 --> 120:21:57,190\nnow we are engaged in a great civil war testing whether that nation or any nations open conceived and so dedicated can long endure\n\n");
 }

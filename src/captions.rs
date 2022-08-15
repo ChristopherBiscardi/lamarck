@@ -1,3 +1,5 @@
+use camino::Utf8PathBuf;
+use clap::Args;
 use deepgram::{
     transcription::prerecorded::{
         audio_source::AudioSource,
@@ -5,8 +7,6 @@ use deepgram::{
     },
     Deepgram, DeepgramError,
 };
-use camino::Utf8PathBuf;
-use clap::Args;
 use indicatif::{ProgressBar, ProgressStyle};
 use miette::Diagnostic;
 use thiserror::Error;
@@ -28,9 +28,11 @@ pub struct Caption {
     input: String,
     /// a filepath to use for the output.
     ///
-    /// The filename will be preserved if it exists
+    /// The filename will be preserved if it
+    /// exists
     ///
-    /// The file extension will be replaced if it exists
+    /// The file extension will be replaced if it
+    /// exists
     #[clap(short, long, value_parser)]
     output_path: Option<Utf8PathBuf>,
     /// output an srt file
@@ -49,7 +51,8 @@ pub struct Caption {
         help_heading = "OUTPUT_TYPE"
     )]
     transcript: bool,
-    /// output a markdown file with links to video timestamps
+    /// output a markdown file with links to video
+    /// timestamps
     #[clap(
         short,
         long,
@@ -118,8 +121,11 @@ pub async fn generate_captions(
         .unwrap_or(Utf8PathBuf::from("transcript.srt"));
     let output_dir_exists = match output_file.file_name() {
         Some(_) => {
+            // if we have a file name, then make sure the
+            // parent dir exists
             if let Some(parent) = output_file.parent() {
-                // TODO: what if we only have a filename and no parent dir
+                // TODO: what if we only have a filename and
+                // no parent dir
                 parent.exists()
             } else {
                 true
