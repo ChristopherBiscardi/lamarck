@@ -1,39 +1,66 @@
 use deepgram::transcription::prerecorded::response::Response;
+use itertools::Itertools;
 use time::Duration;
 
 #[derive(Debug)]
 pub struct Srt {
-    pub value: String,
+    pub channels: Vec<Vec<String>>,
 }
 
-impl TryFrom<Response> for Srt {
-    type Error = String;
+impl From<Response> for Srt {
+    fn from(response: Response) -> Self {
+        let channels =
+            response
+                .results
+                .channels
+                .iter()
+                .map(|channel| {
+                    channel
+                        .alternatives
+                        .iter()
+                        .map(|alt| {
+                            alt.words
+                            .iter()
+                            .chunks(5)
+                            .into_iter()
+                            .enumerate()
+                            .map(|(index, words_chunk)| {
+                             let (start, end, words) = words_chunk.map(|word| (
+                                    word.start,
+                                    word.end,
+                                    String::from(if let Some(word) = &word.punctuated_word {
+                                        word
+                                    } else {
+                                        &word.word
+                                    })
+                                )).reduce(|mut acc, item| {
+                                        acc.1 = item.1;
+                                        acc.2.push(' ');
+                                        acc.2.push_str(&item.2);
+                                        acc
+                                }).unwrap();
 
-    fn try_from(
-        response: Response,
-    ) -> Result<Self, Self::Error> {
-        let srt = response
-            .results
-            .utterances
-            .ok_or("response.results.utterances does not exist. Creating an srt requires a transcript that was generated with the utterances feature".to_string())?
-            .iter()
-            .enumerate()
-            .map(|(index, utterance)| {
-                format!(
-                    "{}\n{} --> {}\n{}\n\n",
-                    index + 1,
-                    seconds_to_timestamp(
-                        (utterance.start * 1000.) as i64
-                    ),
-                    seconds_to_timestamp(
-                        (utterance.end * 1000.) as i64
-                    ),
-                    utterance.transcript
-                )
-            })
-            .collect::<String>();
+                                format!(
+                                    "{}\n{} --> {}\n{}\n\n",
+                                    index + 1,
+                                    seconds_to_timestamp(
+                                        (start * 1000.)
+                                            as i64
+                                    ),
+                                    seconds_to_timestamp(
+                                        (end * 1000.)
+                                            as i64
+                                    ),
+                                    words
+                                )
+                            })
+                            .collect::<String>()
+                        })
+                        .collect::<Vec<String>>()
+                })
+                .collect();
 
-        Ok(Srt { value: srt })
+        Srt { channels: channels }
     }
 }
 

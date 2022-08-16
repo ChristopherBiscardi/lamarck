@@ -31,3 +31,4 @@ deepgram = "0.2.0"
 time = { version = "0.3.11", features = ["formatting", "macros"] }
 mime_guess = "2.0.4"
 indicatif = "0.16.2"
+itertools = "0.10.3"

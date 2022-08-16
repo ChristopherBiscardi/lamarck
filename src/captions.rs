@@ -35,6 +35,18 @@ pub struct Caption {
     /// exists
     #[clap(short, long, value_parser)]
     output_path: Option<Utf8PathBuf>,
+    /// output the raw deepgram response
+    /// as Rust structs.
+    ///
+    /// Deepgram doesn't supply Serialize for the
+    /// Response type.
+    #[clap(
+        short,
+        long,
+        default_value_t = false,
+        help_heading = "OUTPUT_TYPE"
+    )]
+    raw: bool,
     /// output an srt file
     #[clap(
         short,
@@ -114,29 +126,43 @@ pub async fn generate_captions(
     .template("[{elapsed_precise}] {spinner} {pos:>7}/{len:7} {msg}")
     .progress_chars("##-"));
     bar.set_message("generating captions...");
+    bar.tick();
 
-    let output_file = options
+    let output_location = options
         .output_path
         .clone()
         .unwrap_or(Utf8PathBuf::from("transcript.srt"));
-    let output_dir_exists = match output_file.file_name() {
+    let output_dir_exists = match output_location
+        .file_name()
+    {
         Some(_) => {
             // if we have a file name, then make sure the
             // parent dir exists
-            if let Some(parent) = output_file.parent() {
+            if let Some(parent) = output_location.parent() {
                 // TODO: what if we only have a filename and
                 // no parent dir
-                parent.exists()
+                if parent.as_str() == "" {
+                    // if the parent is empty, then the file
+                    // is in the current
+                    // directory
+                    true
+                } else {
+                    parent.exists()
+                }
             } else {
+                // if the path terminates in a root (like /)
+                // or prefix
                 true
             }
         }
-        None => output_file.exists(),
+        None => output_location.exists(),
     };
+
+    if output_location.file_name().is_some() {}
 
     if !output_dir_exists {
         return Err(CaptionError::OutputDirNotExistError {
-            output_dir: output_file,
+            output_dir: output_location,
         });
     }
 
@@ -187,12 +213,23 @@ pub async fn generate_captions(
 
     bar.set_message("processing deepgram response");
 
-    let transcript = &response.results.channels[0]
-        .alternatives[0]
-        .transcript;
+    if options.raw {
+        let mut output = output_location.clone();
+        output.set_extension("raw");
+        let mut raw_response_file =
+            File::create(output).await?;
+        let contents = format!("{:#?}", response);
+        raw_response_file
+            .write_all(contents.as_bytes())
+            .await?;
+    }
 
     if options.transcript {
-        let mut output = output_file.clone();
+        let transcript = &response.results.channels[0]
+            .alternatives[0]
+            .transcript;
+
+        let mut output = output_location.clone();
         output.set_extension("txt");
         let mut transcript_file =
             File::create(output).await?;
@@ -202,13 +239,26 @@ pub async fn generate_captions(
     }
 
     if options.srt {
-        let mut output = output_file.clone();
-        output.set_extension("srt");
+        let srts = Srt::from(response);
+        for (channel_id, channel) in
+            srts.channels.iter().enumerate()
+        {
+            for (alternative_id, alternative) in
+                channel.iter().enumerate()
+            {
+                let mut output = output_location.clone();
+                let file_stem = output.file_stem().unwrap();
+                let new_file_stem = format!("{file_stem}-channel-{channel_id}-alternative-{alternative_id}");
+                output.set_file_name(new_file_stem);
+                output.set_extension("srt");
 
-        let srt = Srt::try_from(response).unwrap();
-
-        let mut srt_file = File::create(output).await?;
-        srt_file.write_all(srt.value.as_bytes()).await?;
+                let mut srt_file =
+                    File::create(output).await?;
+                srt_file
+                    .write_all(alternative.as_bytes())
+                    .await?;
+            }
+        }
     }
 
     if options.markdown {
