@@ -17,6 +17,8 @@ use url::Url;
 
 mod srt;
 use srt::*;
+mod beast_captions;
+use beast_captions::*;
 
 #[derive(Args, Debug)]
 pub struct Caption {
@@ -55,6 +57,16 @@ pub struct Caption {
         help_heading = "OUTPUT_TYPE"
     )]
     srt: bool,
+    /// output an srt file that contains single-words
+    /// like you would find in burn-in captions from
+    /// mrbeast or similar
+    #[clap(
+        short,
+        long,
+        default_value_t = false,
+        help_heading = "OUTPUT_TYPE"
+    )]
+    beast_captions: bool,
     /// output a transcript
     #[clap(
         short,
@@ -239,7 +251,30 @@ pub async fn generate_captions(
     }
 
     if options.srt {
-        let srts = Srt::from(response);
+        let srts = Srt::from(response.clone());
+        for (channel_id, channel) in
+            srts.channels.iter().enumerate()
+        {
+            for (alternative_id, alternative) in
+                channel.iter().enumerate()
+            {
+                let mut output = output_location.clone();
+                let file_stem = output.file_stem().unwrap();
+                let new_file_stem = format!("{file_stem}-channel-{channel_id}-alternative-{alternative_id}");
+                output.set_file_name(new_file_stem);
+                output.set_extension("srt");
+
+                let mut srt_file =
+                    File::create(output).await?;
+                srt_file
+                    .write_all(alternative.as_bytes())
+                    .await?;
+            }
+        }
+    }
+
+    if options.beast_captions {
+        let srts = BeastCaptions::from(response);
         for (channel_id, channel) in
             srts.channels.iter().enumerate()
         {
