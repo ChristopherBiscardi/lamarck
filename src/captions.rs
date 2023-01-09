@@ -283,7 +283,7 @@ pub async fn generate_captions(
             {
                 let mut output = output_location.clone();
                 let file_stem = output.file_stem().unwrap();
-                let new_file_stem = format!("{file_stem}-channel-{channel_id}-alternative-{alternative_id}");
+                let new_file_stem = format!("{file_stem}-channel-{channel_id}-alternative-{alternative_id}-beast");
                 output.set_file_name(new_file_stem);
                 output.set_extension("srt");
 
