@@ -213,7 +213,7 @@ pub async fn generate_captions(
 
     let deepgram_options = Options::builder()
         .punctuate(true)
-        .language(Language::en_US)
+        .language(Language::de)
         .utterances(true)
         .build();
 

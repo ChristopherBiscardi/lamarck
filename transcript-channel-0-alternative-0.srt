@@ -1,0 +1,48 @@
+1
+00:00:00,140 --> 00:00:01,620
+Ja ich möchte einen weiteren
+
+2
+00:00:01,699 --> 00:00:03,740
+Test durchführen in dem Test
+
+3
+00:00:03,740 --> 00:00:05,279
+geht es darum, wie deutlich
+
+4
+00:00:05,299 --> 00:00:07,393
+man die Stimme versteht wenn
+
+5
+00:00:07,393 --> 00:00:08,790
+man ganz normal aufnimmt wir
+
+6
+00:00:08,790 --> 00:00:11,063
+haben vorher noch nicht ergibt
+
+7
+00:00:11,063 --> 00:00:12,818
+elektronisch verstärkt das machen wir
+
+8
+00:00:12,818 --> 00:00:14,749
+mit einem anderen programm Jetzt
+
+9
+00:00:14,749 --> 00:00:15,868
+geht es erstmal mal darum,
+
+10
+00:00:16,307 --> 00:00:18,126
+dass wir Deutsch sauber transportieren
+
+11
+00:00:18,265 --> 00:00:20,143
+können und dazu haben wir
+
+12
+00:00:20,143 --> 00:00:21,602
+diese Test datei erzeugt.
+

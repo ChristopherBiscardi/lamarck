@@ -1,0 +1,1275 @@
+Response {
+    metadata: ListenMetadata {
+        request_id: b41aad442ac549c4bd4c633f9ad327fe,
+        transaction_key: "deprecated",
+        sha256: "54894f570633cca70f273d237f8f03a67202530da1e88c8fa0ad50430541f376",
+        created: "2023-05-16T05:10:54.616Z",
+        duration: 23.688,
+        channels: 1,
+    },
+    results: ListenResults {
+        channels: [
+            ChannelResult {
+                search: None,
+                alternatives: [
+                    ResultAlternative {
+                        transcript: "Ja ich möchte einen weiteren Test durchführen in dem Test geht es darum, wie deutlich man die Stimme versteht wenn man ganz normal aufnimmt wir haben vorher noch nicht ergibt elektronisch verstärkt das machen wir mit einem anderen programm Jetzt geht es erstmal mal darum, dass wir Deutsch sauber transportieren können und dazu haben wir diese Test datei erzeugt.",
+                        confidence: 0.96972656,
+                        words: [
+                            Word {
+                                word: "ja",
+                                start: 0.14,
+                                end: 0.26,
+                                confidence: 0.62646484,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "Ja",
+                                ),
+                            },
+                            Word {
+                                word: "ich",
+                                start: 0.26,
+                                end: 0.42,
+                                confidence: 0.9663086,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "ich",
+                                ),
+                            },
+                            Word {
+                                word: "möchte",
+                                start: 0.42,
+                                end: 0.91999996,
+                                confidence: 0.9926758,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "möchte",
+                                ),
+                            },
+                            Word {
+                                word: "einen",
+                                start: 1.06,
+                                end: 1.26,
+                                confidence: 0.99121094,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "einen",
+                                ),
+                            },
+                            Word {
+                                word: "weiteren",
+                                start: 1.26,
+                                end: 1.62,
+                                confidence: 0.9868164,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "weiteren",
+                                ),
+                            },
+                            Word {
+                                word: "test",
+                                start: 1.6999999,
+                                end: 2.1999998,
+                                confidence: 0.99658203,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "Test",
+                                ),
+                            },
+                            Word {
+                                word: "durchführen",
+                                start: 2.3,
+                                end: 2.8,
+                                confidence: 0.9995117,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "durchführen",
+                                ),
+                            },
+                            Word {
+                                word: "in",
+                                start: 3.1399999,
+                                end: 3.26,
+                                confidence: 0.89501953,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "in",
+                                ),
+                            },
+                            Word {
+                                word: "dem",
+                                start: 3.26,
+                                end: 3.3799999,
+                                confidence: 0.9609375,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "dem",
+                                ),
+                            },
+                            Word {
+                                word: "test",
+                                start: 3.4199998,
+                                end: 3.74,
+                                confidence: 0.9848633,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "Test",
+                                ),
+                            },
+                            Word {
+                                word: "geht",
+                                start: 3.74,
+                                end: 3.86,
+                                confidence: 0.83154297,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "geht",
+                                ),
+                            },
+                            Word {
+                                word: "es",
+                                start: 3.86,
+                                end: 4.02,
+                                confidence: 0.71875,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "es",
+                                ),
+                            },
+                            Word {
+                                word: "darum",
+                                start: 4.02,
+                                end: 4.46,
+                                confidence: 0.99853516,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "darum,",
+                                ),
+                            },
+                            Word {
+                                word: "wie",
+                                start: 4.62,
+                                end: 4.7799997,
+                                confidence: 0.9946289,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "wie",
+                                ),
+                            },
+                            Word {
+                                word: "deutlich",
+                                start: 4.7799997,
+                                end: 5.2799997,
+                                confidence: 0.99853516,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "deutlich",
+                                ),
+                            },
+                            Word {
+                                word: "man",
+                                start: 5.2999997,
+                                end: 5.42,
+                                confidence: 0.99560547,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "man",
+                                ),
+                            },
+                            Word {
+                                word: "die",
+                                start: 5.42,
+                                end: 5.5,
+                                confidence: 0.99316406,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "die",
+                                ),
+                            },
+                            Word {
+                                word: "stimme",
+                                start: 5.58,
+                                end: 5.8599997,
+                                confidence: 0.9970703,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "Stimme",
+                                ),
+                            },
+                            Word {
+                                word: "versteht",
+                                start: 5.8599997,
+                                end: 6.3599997,
+                                confidence: 0.9892578,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "versteht",
+                                ),
+                            },
+                            Word {
+                                word: "wenn",
+                                start: 7.2742777,
+                                end: 7.3939443,
+                                confidence: 0.99072266,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "wenn",
+                                ),
+                            },
+                            Word {
+                                word: "man",
+                                start: 7.3939443,
+                                end: 7.5933886,
+                                confidence: 0.95410156,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "man",
+                                ),
+                            },
+                            Word {
+                                word: "ganz",
+                                start: 7.5933886,
+                                end: 7.7529445,
+                                confidence: 0.79589844,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "ganz",
+                                ),
+                            },
+                            Word {
+                                word: "normal",
+                                start: 7.7529445,
+                                end: 8.252945,
+                                confidence: 0.9189453,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "normal",
+                                ),
+                            },
+                            Word {
+                                word: "aufnimmt",
+                                start: 8.2715,
+                                end: 8.670389,
+                                confidence: 0.99902344,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "aufnimmt",
+                                ),
+                            },
+                            Word {
+                                word: "wir",
+                                start: 8.670389,
+                                end: 8.790055,
+                                confidence: 0.98046875,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "wir",
+                                ),
+                            },
+                            Word {
+                                word: "haben",
+                                start: 8.790055,
+                                end: 8.9895,
+                                confidence: 0.99072266,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "haben",
+                                ),
+                            },
+                            Word {
+                                word: "vorher",
+                                start: 8.9895,
+                                end: 9.308611,
+                                confidence: 0.99853516,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "vorher",
+                                ),
+                            },
+                            Word {
+                                word: "noch",
+                                start: 9.308611,
+                                end: 9.468166,
+                                confidence: 0.9921875,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "noch",
+                                ),
+                            },
+                            Word {
+                                word: "nicht",
+                                start: 9.468166,
+                                end: 9.968166,
+                                confidence: 0.97753906,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "nicht",
+                                ),
+                            },
+                            Word {
+                                word: "ergibt",
+                                start: 10.864278,
+                                end: 11.063723,
+                                confidence: 0.25097656,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "ergibt",
+                                ),
+                            },
+                            Word {
+                                word: "elektronisch",
+                                start: 11.063723,
+                                end: 11.563723,
+                                confidence: 0.41333008,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "elektronisch",
+                                ),
+                            },
+                            Word {
+                                word: "verstärkt",
+                                start: 11.701944,
+                                end: 12.201944,
+                                confidence: 0.99902344,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "verstärkt",
+                                ),
+                            },
+                            Word {
+                                word: "das",
+                                start: 12.380055,
+                                end: 12.539611,
+                                confidence: 0.70947266,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "das",
+                                ),
+                            },
+                            Word {
+                                word: "machen",
+                                start: 12.539611,
+                                end: 12.699166,
+                                confidence: 0.91796875,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "machen",
+                                ),
+                            },
+                            Word {
+                                word: "wir",
+                                start: 12.699166,
+                                end: 12.818833,
+                                confidence: 0.76220703,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "wir",
+                                ),
+                            },
+                            Word {
+                                word: "mit",
+                                start: 12.818833,
+                                end: 12.898611,
+                                confidence: 0.9902344,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "mit",
+                                ),
+                            },
+                            Word {
+                                word: "einem",
+                                start: 12.898611,
+                                end: 13.018278,
+                                confidence: 0.96972656,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "einem",
+                                ),
+                            },
+                            Word {
+                                word: "anderen",
+                                start: 13.018278,
+                                end: 13.2975,
+                                confidence: 0.96972656,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "anderen",
+                                ),
+                            },
+                            Word {
+                                word: "programm",
+                                start: 13.2975,
+                                end: 13.7975,
+                                confidence: 0.69970703,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "programm",
+                                ),
+                            },
+                            Word {
+                                word: "jetzt",
+                                start: 14.509684,
+                                end: 14.749431,
+                                confidence: 0.9921875,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "Jetzt",
+                                ),
+                            },
+                            Word {
+                                word: "geht",
+                                start: 14.749431,
+                                end: 14.909262,
+                                confidence: 0.8725586,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "geht",
+                                ),
+                            },
+                            Word {
+                                word: "es",
+                                start: 14.909262,
+                                end: 15.069093,
+                                confidence: 0.8222656,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "es",
+                                ),
+                            },
+                            Word {
+                                word: "erstmal",
+                                start: 15.069093,
+                                end: 15.348798,
+                                confidence: 0.6699219,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "erstmal",
+                                ),
+                            },
+                            Word {
+                                word: "mal",
+                                start: 15.348798,
+                                end: 15.508629,
+                                confidence: 0.5341797,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "mal",
+                                ),
+                            },
+                            Word {
+                                word: "darum",
+                                start: 15.508629,
+                                end: 15.868249,
+                                confidence: 0.99609375,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "darum,",
+                                ),
+                            },
+                            Word {
+                                word: "dass",
+                                start: 16.307785,
+                                end: 16.507574,
+                                confidence: 0.9716797,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "dass",
+                                ),
+                            },
+                            Word {
+                                word: "wir",
+                                start: 16.507574,
+                                end: 16.667404,
+                                confidence: 0.99560547,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "wir",
+                                ),
+                            },
+                            Word {
+                                word: "deutsch",
+                                start: 16.707363,
+                                end: 17.207363,
+                                confidence: 0.92041016,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "Deutsch",
+                                ),
+                            },
+                            Word {
+                                word: "sauber",
+                                start: 17.266773,
+                                end: 17.626392,
+                                confidence: 0.99121094,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "sauber",
+                                ),
+                            },
+                            Word {
+                                word: "transportieren",
+                                start: 17.626392,
+                                end: 18.126392,
+                                confidence: 0.72509766,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "transportieren",
+                                ),
+                            },
+                            Word {
+                                word: "können",
+                                start: 18.265717,
+                                end: 18.765717,
+                                confidence: 0.9926758,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "können",
+                                ),
+                            },
+                            Word {
+                                word: "und",
+                                start: 19.224705,
+                                end: 19.384537,
+                                confidence: 0.94384766,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "und",
+                                ),
+                            },
+                            Word {
+                                word: "dazu",
+                                start: 19.384537,
+                                end: 19.864029,
+                                confidence: 0.9951172,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "dazu",
+                                ),
+                            },
+                            Word {
+                                word: "haben",
+                                start: 19.864029,
+                                end: 20.02386,
+                                confidence: 0.99609375,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "haben",
+                                ),
+                            },
+                            Word {
+                                word: "wir",
+                                start: 20.02386,
+                                end: 20.143734,
+                                confidence: 0.9824219,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "wir",
+                                ),
+                            },
+                            Word {
+                                word: "diese",
+                                start: 20.143734,
+                                end: 20.343523,
+                                confidence: 0.8066406,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "diese",
+                                ),
+                            },
+                            Word {
+                                word: "test",
+                                start: 20.423439,
+                                end: 20.583271,
+                                confidence: 0.96728516,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "Test",
+                                ),
+                            },
+                            Word {
+                                word: "datei",
+                                start: 20.583271,
+                                end: 21.083271,
+                                confidence: 0.64990234,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "datei",
+                                ),
+                            },
+                            Word {
+                                word: "erzeugt",
+                                start: 21.102722,
+                                end: 21.602722,
+                                confidence: 0.9716797,
+                                speaker: None,
+                                punctuated_word: Some(
+                                    "erzeugt.",
+                                ),
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+        utterances: Some(
+            [
+                Utterance {
+                    start: 0.14,
+                    end: 2.8,
+                    confidence: 0.93708146,
+                    channel: 0,
+                    transcript: "Ja ich möchte einen weiteren Test durchführen",
+                    words: [
+                        Word {
+                            word: "ja",
+                            start: 0.14,
+                            end: 0.26,
+                            confidence: 0.62646484,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "Ja",
+                            ),
+                        },
+                        Word {
+                            word: "ich",
+                            start: 0.26,
+                            end: 0.42,
+                            confidence: 0.9663086,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "ich",
+                            ),
+                        },
+                        Word {
+                            word: "möchte",
+                            start: 0.42,
+                            end: 0.91999996,
+                            confidence: 0.9926758,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "möchte",
+                            ),
+                        },
+                        Word {
+                            word: "einen",
+                            start: 1.06,
+                            end: 1.26,
+                            confidence: 0.99121094,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "einen",
+                            ),
+                        },
+                        Word {
+                            word: "weiteren",
+                            start: 1.26,
+                            end: 1.62,
+                            confidence: 0.9868164,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "weiteren",
+                            ),
+                        },
+                        Word {
+                            word: "test",
+                            start: 1.6999999,
+                            end: 2.1999998,
+                            confidence: 0.99658203,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "Test",
+                            ),
+                        },
+                        Word {
+                            word: "durchführen",
+                            start: 2.3,
+                            end: 2.8,
+                            confidence: 0.9995117,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "durchführen",
+                            ),
+                        },
+                    ],
+                    speaker: None,
+                    id: 4831aa5e6bd74b5aba1c9392ea09b2d7,
+                },
+                Utterance {
+                    start: 3.1399999,
+                    end: 6.3599997,
+                    confidence: 0.9464925,
+                    channel: 0,
+                    transcript: "in dem Test geht es darum, wie deutlich man die Stimme versteht",
+                    words: [
+                        Word {
+                            word: "in",
+                            start: 3.1399999,
+                            end: 3.26,
+                            confidence: 0.89501953,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "in",
+                            ),
+                        },
+                        Word {
+                            word: "dem",
+                            start: 3.26,
+                            end: 3.3799999,
+                            confidence: 0.9609375,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "dem",
+                            ),
+                        },
+                        Word {
+                            word: "test",
+                            start: 3.4199998,
+                            end: 3.74,
+                            confidence: 0.9848633,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "Test",
+                            ),
+                        },
+                        Word {
+                            word: "geht",
+                            start: 3.74,
+                            end: 3.86,
+                            confidence: 0.83154297,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "geht",
+                            ),
+                        },
+                        Word {
+                            word: "es",
+                            start: 3.86,
+                            end: 4.02,
+                            confidence: 0.71875,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "es",
+                            ),
+                        },
+                        Word {
+                            word: "darum",
+                            start: 4.02,
+                            end: 4.46,
+                            confidence: 0.99853516,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "darum,",
+                            ),
+                        },
+                        Word {
+                            word: "wie",
+                            start: 4.62,
+                            end: 4.7799997,
+                            confidence: 0.9946289,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "wie",
+                            ),
+                        },
+                        Word {
+                            word: "deutlich",
+                            start: 4.7799997,
+                            end: 5.2799997,
+                            confidence: 0.99853516,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "deutlich",
+                            ),
+                        },
+                        Word {
+                            word: "man",
+                            start: 5.2999997,
+                            end: 5.42,
+                            confidence: 0.99560547,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "man",
+                            ),
+                        },
+                        Word {
+                            word: "die",
+                            start: 5.42,
+                            end: 5.5,
+                            confidence: 0.99316406,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "die",
+                            ),
+                        },
+                        Word {
+                            word: "stimme",
+                            start: 5.58,
+                            end: 5.8599997,
+                            confidence: 0.9970703,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "Stimme",
+                            ),
+                        },
+                        Word {
+                            word: "versteht",
+                            start: 5.8599997,
+                            end: 6.3599997,
+                            confidence: 0.9892578,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "versteht",
+                            ),
+                        },
+                    ],
+                    speaker: None,
+                    id: 9d167e9c45e54f04a5f4a19926389275,
+                },
+                Utterance {
+                    start: 7.2742777,
+                    end: 9.968166,
+                    confidence: 0.9598144,
+                    channel: 0,
+                    transcript: "wenn man ganz normal aufnimmt wir haben vorher noch nicht",
+                    words: [
+                        Word {
+                            word: "wenn",
+                            start: 7.2742777,
+                            end: 7.3939443,
+                            confidence: 0.99072266,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "wenn",
+                            ),
+                        },
+                        Word {
+                            word: "man",
+                            start: 7.3939443,
+                            end: 7.5933886,
+                            confidence: 0.95410156,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "man",
+                            ),
+                        },
+                        Word {
+                            word: "ganz",
+                            start: 7.5933886,
+                            end: 7.7529445,
+                            confidence: 0.79589844,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "ganz",
+                            ),
+                        },
+                        Word {
+                            word: "normal",
+                            start: 7.7529445,
+                            end: 8.252945,
+                            confidence: 0.9189453,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "normal",
+                            ),
+                        },
+                        Word {
+                            word: "aufnimmt",
+                            start: 8.2715,
+                            end: 8.670389,
+                            confidence: 0.99902344,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "aufnimmt",
+                            ),
+                        },
+                        Word {
+                            word: "wir",
+                            start: 8.670389,
+                            end: 8.790055,
+                            confidence: 0.98046875,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "wir",
+                            ),
+                        },
+                        Word {
+                            word: "haben",
+                            start: 8.790055,
+                            end: 8.9895,
+                            confidence: 0.99072266,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "haben",
+                            ),
+                        },
+                        Word {
+                            word: "vorher",
+                            start: 8.9895,
+                            end: 9.308611,
+                            confidence: 0.99853516,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "vorher",
+                            ),
+                        },
+                        Word {
+                            word: "noch",
+                            start: 9.308611,
+                            end: 9.468166,
+                            confidence: 0.9921875,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "noch",
+                            ),
+                        },
+                        Word {
+                            word: "nicht",
+                            start: 9.468166,
+                            end: 9.968166,
+                            confidence: 0.97753906,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "nicht",
+                            ),
+                        },
+                    ],
+                    speaker: None,
+                    id: 9672c9a3d6694a3b91ce6705efc7b264,
+                },
+                Utterance {
+                    start: 10.864278,
+                    end: 13.7975,
+                    confidence: 0.7682373,
+                    channel: 0,
+                    transcript: "ergibt elektronisch verstärkt das machen wir mit einem anderen programm",
+                    words: [
+                        Word {
+                            word: "ergibt",
+                            start: 10.864278,
+                            end: 11.063723,
+                            confidence: 0.25097656,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "ergibt",
+                            ),
+                        },
+                        Word {
+                            word: "elektronisch",
+                            start: 11.063723,
+                            end: 11.563723,
+                            confidence: 0.41333008,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "elektronisch",
+                            ),
+                        },
+                        Word {
+                            word: "verstärkt",
+                            start: 11.701944,
+                            end: 12.201944,
+                            confidence: 0.99902344,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "verstärkt",
+                            ),
+                        },
+                        Word {
+                            word: "das",
+                            start: 12.380055,
+                            end: 12.539611,
+                            confidence: 0.70947266,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "das",
+                            ),
+                        },
+                        Word {
+                            word: "machen",
+                            start: 12.539611,
+                            end: 12.699166,
+                            confidence: 0.91796875,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "machen",
+                            ),
+                        },
+                        Word {
+                            word: "wir",
+                            start: 12.699166,
+                            end: 12.818833,
+                            confidence: 0.76220703,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "wir",
+                            ),
+                        },
+                        Word {
+                            word: "mit",
+                            start: 12.818833,
+                            end: 12.898611,
+                            confidence: 0.9902344,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "mit",
+                            ),
+                        },
+                        Word {
+                            word: "einem",
+                            start: 12.898611,
+                            end: 13.018278,
+                            confidence: 0.96972656,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "einem",
+                            ),
+                        },
+                        Word {
+                            word: "anderen",
+                            start: 13.018278,
+                            end: 13.2975,
+                            confidence: 0.96972656,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "anderen",
+                            ),
+                        },
+                        Word {
+                            word: "programm",
+                            start: 13.2975,
+                            end: 13.7975,
+                            confidence: 0.69970703,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "programm",
+                            ),
+                        },
+                    ],
+                    speaker: None,
+                    id: 323cc7268fe846ad9eddb14c42f872aa,
+                },
+                Utterance {
+                    start: 14.509684,
+                    end: 18.765717,
+                    confidence: 0.8736572,
+                    channel: 0,
+                    transcript: "Jetzt geht es erstmal mal darum, dass wir Deutsch sauber transportieren können",
+                    words: [
+                        Word {
+                            word: "jetzt",
+                            start: 14.509684,
+                            end: 14.749431,
+                            confidence: 0.9921875,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "Jetzt",
+                            ),
+                        },
+                        Word {
+                            word: "geht",
+                            start: 14.749431,
+                            end: 14.909262,
+                            confidence: 0.8725586,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "geht",
+                            ),
+                        },
+                        Word {
+                            word: "es",
+                            start: 14.909262,
+                            end: 15.069093,
+                            confidence: 0.8222656,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "es",
+                            ),
+                        },
+                        Word {
+                            word: "erstmal",
+                            start: 15.069093,
+                            end: 15.348798,
+                            confidence: 0.6699219,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "erstmal",
+                            ),
+                        },
+                        Word {
+                            word: "mal",
+                            start: 15.348798,
+                            end: 15.508629,
+                            confidence: 0.5341797,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "mal",
+                            ),
+                        },
+                        Word {
+                            word: "darum",
+                            start: 15.508629,
+                            end: 15.868249,
+                            confidence: 0.99609375,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "darum,",
+                            ),
+                        },
+                        Word {
+                            word: "dass",
+                            start: 16.307785,
+                            end: 16.507574,
+                            confidence: 0.9716797,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "dass",
+                            ),
+                        },
+                        Word {
+                            word: "wir",
+                            start: 16.507574,
+                            end: 16.667404,
+                            confidence: 0.99560547,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "wir",
+                            ),
+                        },
+                        Word {
+                            word: "deutsch",
+                            start: 16.707363,
+                            end: 17.207363,
+                            confidence: 0.92041016,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "Deutsch",
+                            ),
+                        },
+                        Word {
+                            word: "sauber",
+                            start: 17.266773,
+                            end: 17.626392,
+                            confidence: 0.99121094,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "sauber",
+                            ),
+                        },
+                        Word {
+                            word: "transportieren",
+                            start: 17.626392,
+                            end: 18.126392,
+                            confidence: 0.72509766,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "transportieren",
+                            ),
+                        },
+                        Word {
+                            word: "können",
+                            start: 18.265717,
+                            end: 18.765717,
+                            confidence: 0.9926758,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "können",
+                            ),
+                        },
+                    ],
+                    speaker: None,
+                    id: 34b2f59d66004a1f88920de950a6c68d,
+                },
+                Utterance {
+                    start: 19.224705,
+                    end: 21.602722,
+                    confidence: 0.91412354,
+                    channel: 0,
+                    transcript: "und dazu haben wir diese Test datei erzeugt.",
+                    words: [
+                        Word {
+                            word: "und",
+                            start: 19.224705,
+                            end: 19.384537,
+                            confidence: 0.94384766,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "und",
+                            ),
+                        },
+                        Word {
+                            word: "dazu",
+                            start: 19.384537,
+                            end: 19.864029,
+                            confidence: 0.9951172,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "dazu",
+                            ),
+                        },
+                        Word {
+                            word: "haben",
+                            start: 19.864029,
+                            end: 20.02386,
+                            confidence: 0.99609375,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "haben",
+                            ),
+                        },
+                        Word {
+                            word: "wir",
+                            start: 20.02386,
+                            end: 20.143734,
+                            confidence: 0.9824219,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "wir",
+                            ),
+                        },
+                        Word {
+                            word: "diese",
+                            start: 20.143734,
+                            end: 20.343523,
+                            confidence: 0.8066406,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "diese",
+                            ),
+                        },
+                        Word {
+                            word: "test",
+                            start: 20.423439,
+                            end: 20.583271,
+                            confidence: 0.96728516,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "Test",
+                            ),
+                        },
+                        Word {
+                            word: "datei",
+                            start: 20.583271,
+                            end: 21.083271,
+                            confidence: 0.64990234,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "datei",
+                            ),
+                        },
+                        Word {
+                            word: "erzeugt",
+                            start: 21.102722,
+                            end: 21.602722,
+                            confidence: 0.9716797,
+                            speaker: None,
+                            punctuated_word: Some(
+                                "erzeugt.",
+                            ),
+                        },
+                    ],
+                    speaker: None,
+                    id: 648156f6d8594de2b63b6b2d4b40b5f6,
+                },
+            ],
+        ),
+    },
+}

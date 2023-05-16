@@ -46,3 +46,9 @@ OUTPUT_TYPE:
 ##### Naming
 
 Lamarck is short for [Lamarckdromia Beagle](https://hu.wikipedia.org/wiki/Lamarckdromia_beagle) and is also French for "the mark", like the marks you'd make on a live stream to pull out clips.
+
+#### ForkNotes
+
+we changed the language model to german and recompiled
+
+usage is now `target/debug/lamarck caption --deepgram-api-key <key> --input test_german.mp3`
