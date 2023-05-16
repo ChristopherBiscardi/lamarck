@@ -34,6 +34,8 @@ OPTIONS:
 
     -V, --version
             Print version information
+    -l, --lang
+            which language the audio file is in            
 
 OUTPUT_TYPE:
     -m, --markdown <markdown>        output a markdown file with links to video timestamps [default:
