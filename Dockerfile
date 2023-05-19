@@ -1,5 +1,6 @@
 # Use a base image that matches the target platform
 FROM ubuntu:latest
+#FROM mcr.microsoft.com/windows/servercore:<version>
 
 # Install any necessary dependencies or libraries required by your program
 RUN apt-get update && apt-get install -y \
