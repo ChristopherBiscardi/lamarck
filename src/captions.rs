@@ -77,12 +77,9 @@ pub struct Caption {
     transcript: bool,
     /// output a markdown file with links to video
     /// timestamps
-    #[clap(
-        short,
-        long,
-        default_value_t = false,
-        help_heading = "OUTPUT_TYPE"
-    )]
+    #[clap(short, long, help_heading = "OUTPUT_TYPE")]
+    lang: Option<String>,
+    #[clap(short, long, help_heading = "Language")]
     markdown: bool,
 }
 
@@ -208,12 +205,50 @@ pub async fn generate_captions(
         }
     }?;
 
+    fn map_string_to_language(string: &str) -> Language {
+        match string {
+            "zh" => Language::zh,
+            "zh_cn" => Language::zh_CN,
+            "zh_tw" => Language::zh_TW,
+            "nl" => Language::nl,
+            "en" => Language::en,
+            "en_au" => Language::en_AU,
+            "en_gb" => Language::en_GB,
+            "en_in" => Language::en_IN,
+            "en_nz" => Language::en_NZ,
+            "en_us" => Language::en_US,
+            "fr" => Language::fr,
+            "fr_ca" => Language::fr_CA,
+            "de" => Language::de,
+            "hi" => Language::hi,
+            "hi_latn" => Language::hi_Latn,
+            "id" => Language::id,
+            "it" => Language::it,
+            "ja" => Language::ja,
+            "ko" => Language::ko,
+            "pt" => Language::pt,
+            "pt_br" => Language::pt_BR,
+            "ru" => Language::ru,
+            "es" => Language::es,
+            "es_419" => Language::es_419,
+            "sv" => Language::sv,
+            "tr" => Language::tr,
+            "uk" => Language::uk,
+            _ => Language::en, // Default to Language::En for unknown strings
+        }
+    }
+
+    let language = match options.lang.as_ref() {
+        Some(language) => map_string_to_language(language),
+        None => Language::en_US,
+    };
+
     let dg_client =
         Deepgram::new(&options.deepgram_api_key);
 
     let deepgram_options = Options::builder()
         .punctuate(true)
-        .language(Language::en_US)
+        .language(language)
         .utterances(true)
         .build();
 
