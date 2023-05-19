@@ -77,11 +77,14 @@ pub struct Caption {
     transcript: bool,
     /// output a markdown file with links to video
     /// timestamps
+    #[clap(short, long, help_heading = "OUTPUT_TYPE")]
+    lang: Option<String>,
+    /// argument to specify the language of the audio
     #[clap(
         short,
         long,
         default_value_t = false,
-        help_heading = "OUTPUT_TYPE"
+        help_heading = "language"
     )]
     markdown: bool,
 }
@@ -208,12 +211,28 @@ pub async fn generate_captions(
         }
     }?;
 
+    let language = match options.lang.as_ref() {
+        Some(lang) => match lang.as_str() {
+            "de" => Language::de,
+            "en" => Language::en,
+            "es" => Language::es,
+            "fr" => Language::fr,
+            "it" => Language::it,
+            "ja" => Language::ja,
+            "ko" => Language::ko,
+            "pt" => Language::pt,
+            "zh" => Language::zh,
+            _ => Language::en,
+        },
+        None => Language::en,
+    };
+
     let dg_client =
         Deepgram::new(&options.deepgram_api_key);
 
     let deepgram_options = Options::builder()
         .punctuate(true)
-        .language(Language::en_US)
+        .language(language)
         .utterances(true)
         .build();
 

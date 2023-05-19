@@ -32,6 +32,7 @@ time = { version = "0.3.11", features = ["formatting", "macros"] }
 mime_guess = "2.0.4"
 indicatif = "0.16.2"
 itertools = "0.10.3"
+strum_macros = "0.24"
 
 # The profile that 'cargo dist' will build with
 [profile.dist]

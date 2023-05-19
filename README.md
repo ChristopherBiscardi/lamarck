@@ -34,6 +34,8 @@ OPTIONS:
 
     -V, --version
             Print version information
+    -l, --lang
+            which language the audio file is in            
 
 OUTPUT_TYPE:
     -m, --markdown <markdown>        output a markdown file with links to video timestamps [default:
@@ -46,3 +48,7 @@ OUTPUT_TYPE:
 ##### Naming
 
 Lamarck is short for [Lamarckdromia Beagle](https://hu.wikipedia.org/wiki/Lamarckdromia_beagle) and is also French for "the mark", like the marks you'd make on a live stream to pull out clips.
+
+##### Forking Notes
+We added a `--lang flag`
+usage is now `target/debug/lamarck caption --deepgram-api-key <key> --input test_german.mp3 --lang de`
