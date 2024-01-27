@@ -1,6 +1,6 @@
 [package]
 name = "lamarck"
-version = "0.4.2"
+version = "0.5.0"
 edition = "2021"
 authors = ["Chris Biscardi", "Jacob Bolda"]
 description = "A toolkit CLI for audio/visual manipulation such as generating SRT captions using Deepgram."
@@ -53,7 +53,12 @@ rust-toolchain-version = "1.67.1"
 # CI backends to support
 ci = ["github"]
 # Target platforms to build apps for (Rust target-triple syntax)
-targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+targets = [
+    "aarch64-apple-darwin",
+    "x86_64-apple-darwin",
+    "x86_64-unknown-linux-gnu",
+    "x86_64-pc-windows-msvc",
+]
 # The installers to generate for each app
 installers = ["shell", "powershell", "homebrew", "msi"]
 # A GitHub repo to push Homebrew formulas to
